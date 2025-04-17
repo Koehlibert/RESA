@@ -46,7 +46,7 @@ for (i_setting in 1:nrow(des_mat)) {
                         prob = time_probs_c[1:(n_int)],
                         replace = TRUE)
 
-    cens_indic <- ev_time <= cens_time
+    cens_indic <- as.numeric(ev_time <= cens_time)
     actual_cens_rate[i] <- sum(cens_indic == 0) / n
 
     time <- cbind(c(cens_time), ev_time)[cens_indic * n + 1:n]
